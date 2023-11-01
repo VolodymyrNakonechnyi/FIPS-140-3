@@ -15,9 +15,7 @@ std::string generateKey(int keyLength) {
         int randomBit = std::round(std::rand() / static_cast<double>(RAND_MAX));
         keyStr += std::to_string(randomBit);
     }
-
-    //std::cout << keyStr;
-
+    
     return keyStr;
 }
 
@@ -29,8 +27,6 @@ bool level1(std::string key) {
             onebitCount++;
         }
     }
-
-    std::cout << onebitCount << std::endl;
 
     return (onebitCount < 10346 && onebitCount > 9654) ? true : false;
 }
