@@ -86,7 +86,7 @@ bool check_series_lengths(std::string key) {
     int set = 0;
     char flag = '1';
 
-    for (int i = 0; i < key.length(); i++) { // start the loop from 0
+    for (int i = 0; i < key.length(); i++) {
 
         if (key[i] == flag) {
             set++;
