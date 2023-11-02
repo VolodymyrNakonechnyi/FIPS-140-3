@@ -15,7 +15,7 @@ std::string generateKey(int keyLength) {
         int randomBit = std::round(std::rand() / static_cast<double>(RAND_MAX));
         keyStr += std::to_string(randomBit);
     }
-    
+
     return keyStr;
 }
 
@@ -86,7 +86,7 @@ bool level4(std::string key) {
     int set = 0;
     char flag = '1';
 
-    for (int i = 0; i < key.length(); i++) {
+    for (int i = 1; i < key.length(); i++) {
 
         if (key[i] == flag) {
             set++;
@@ -95,20 +95,14 @@ bool level4(std::string key) {
             if (set >= 6) {
                 array[5]++;
             }
-            else {
-                array[set]++;
+            
+            if(set != 0) {
+                array[set - 1]++;
             }
-            set = 0;
+
+            set = 0 ;
         }
     }
-
-    int size = sizeof(array) / sizeof(array[0]);
-
-    // Shifting elements one position to the left
-    for (int i = 0; i < size - 1; ++i) {
-        array[i] = array[i + 1];
-    }
-
     
     for (int i = 0; i < sizeof(array) / sizeof(4); i++) {
         int count = array[i];
@@ -142,8 +136,15 @@ bool level4(std::string key) {
 
                 break;
 
-            default:
+            case 4:
                 if (count < 90 || count > 223) {
+                    return false;
+                }
+
+                break;
+
+            case 5:
+                if (count < 90 || count >  223) { 
                     return false;
                 }
 
