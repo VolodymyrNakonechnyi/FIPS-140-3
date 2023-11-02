@@ -13,8 +13,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: run the tests
-      run: ./FIPS.cpp
+    - name: Set up CMake
+      run: sudo apt-get install -y cmake
+    - name: Build with CMake
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
+        ./FIPS
     - name: make
       run: make
     - name: make check
