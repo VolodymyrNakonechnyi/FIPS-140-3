@@ -4,7 +4,7 @@ project(UnboundedInteger)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(tests Tests/tests.cpp)
+add_executable(tests ./FIPS.cpp)
 
 enable_testing()
 add_test(NAME tests COMMAND tests)
