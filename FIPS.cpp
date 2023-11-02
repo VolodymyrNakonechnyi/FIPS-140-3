@@ -19,7 +19,7 @@ std::string generateKey(int keyLength) {
     return keyStr;
 }
 
-bool level1(std::string key) {
+bool monobit_test(std::string key) {
     int onebitCount = 0;
 
     for (int i = 0; i < key.length(); i++) {
@@ -31,7 +31,7 @@ bool level1(std::string key) {
     return (onebitCount < 10346 && onebitCount > 9654) ? true : false;
 }
 
-bool level2(std::string key) {
+bool test_max_series_length(std::string key) {
     int set = 0;
     char flag = key[0];
 
@@ -53,7 +53,7 @@ bool level2(std::string key) {
     return true;
 }
 
-bool level3(std::string key) {
+bool poker_test(std::string key) {
     int step = 4;
     int array[16] = { 0 };
     int k = key.length() / step;
@@ -81,12 +81,12 @@ bool level3(std::string key) {
 }
 
 
-bool level4(std::string key) {
+bool check_series_lengths(std::string key) {
     int array[6] = { 0 };
     int set = 0;
     char flag = '1';
 
-    for (int i = 1; i < key.length(); i++) {
+    for (int i = 0; i < key.length(); i++) { // start the loop from 0
 
         if (key[i] == flag) {
             set++;
@@ -95,60 +95,60 @@ bool level4(std::string key) {
             if (set >= 6) {
                 array[5]++;
             }
-            
-            if(set != 0) {
+
+            if (set != 0) {
                 array[set - 1]++;
             }
 
-            set = 0 ;
+            set = 0;
         }
     }
-    
-    for (int i = 0; i < sizeof(array) / sizeof(4); i++) {
+
+    for (int i = 0; i < sizeof(array) / sizeof(int); i++) {
         int count = array[i];
 
         switch (i) {
-            case 0:
-                if (count < 2267 || count > 2733) {
-                    return false;
-                }
+        case 0:
+            if (count < 2267 || count > 2733) {
+                return false;
+            }
 
-                break;
+            break;
 
-            case 1:
-                if (count < 1079 || count > 1421) {
-                    return false;
-                }
+        case 1:
+            if (count < 1079 || count > 1421) {
+                return false;
+            }
 
-               break;
+            break;
 
-            case 2:
-                if (count < 502 || count > 748) {
-                    return false;
-                }
+        case 2:
+            if (count < 502 || count > 748) {
+                return false;
+            }
 
-                break;
+            break;
 
-            case 3:
-                if (count < 223 || count > 402) {
-                    return false;
-                }
+        case 3:
+            if (count < 223 || count > 402) {
+                return false;
+            }
 
-                break;
+            break;
 
-            case 4:
-                if (count < 90 || count > 223) {
-                    return false;
-                }
+        case 4:
+            if (count < 90 || count > 223) {
+                return false;
+            }
 
-                break;
+            break;
 
-            case 5:
-                if (count < 90 || count >  223) { 
-                    return false;
-                }
+        case 5:
+            if (count < 90 || count >  223) {
+                return false;
+            }
 
-                break;
+            break;
         }
     }
 
@@ -164,7 +164,7 @@ int main()
     const std::string key = generateKey(20000);
 
     
-    if (level1(key)) {
+    if (monobit_test(key)) {
         std::cout << "Level 1: passed!" << std::endl;
     }
     else {
@@ -173,7 +173,7 @@ int main()
     
     //+++++++++++++++++++++++++++++++++++++++++++
 
-    if (level2(key)) {
+    if (test_max_series_length(key)) {
         std::cout << "Level 2: passed!" << std::endl;
     }
     else {
@@ -182,7 +182,7 @@ int main()
 
     //+++++++++++++++++++++++++++++++++++++++++++
 
-    if (level3(key)) {
+    if (poker_test(key)) {
         std::cout << "Level 3: passed!" << std::endl;
     }
     else {
@@ -191,7 +191,7 @@ int main()
 
     //+++++++++++++++++++++++++++++++++++++++++++
 
-    if (level4(key)) {
+    if (check_series_lengths(key)) {
         std::cout << "Level 4: passed!" << std::endl;
     }
     else {
