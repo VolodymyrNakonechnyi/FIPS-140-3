@@ -22,7 +22,7 @@ bool monobit_test(const std::string& key) {
     return (onebitCount >= 9654 && onebitCount <= 10346);
 }
 
-bool test_max_series_length(const std::string& key) {
+bool max_series_length_test(const std::string& key) {
     int maxSet = 0;
     int currentSet = 0;
     char flag = key[0];
@@ -101,11 +101,11 @@ int main() {
         std::cout << "Monobit test: failed" << std::endl;
     }
 
-    if (test_max_series_length(key)) {
-        std::cout << "Test max series length: passed!" << std::endl;
+    if (max_series_length_test(key)) {
+        std::cout << "Max series length test: passed!" << std::endl;
     }
     else {
-        std::cout << "Test max series length" << std::endl;
+        std::cout << "Max series length test: failed!" << std::endl;
     }
 
     if (poker_test(key)) {
