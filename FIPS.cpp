@@ -5,6 +5,7 @@
 #include <bitset>
 #include <cmath>
 #include <vector>
+#include <bits/stdc++.h>
 
 std::string generateKey(int keyLength) {
     std::string keyStr = "";
