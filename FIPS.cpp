@@ -81,7 +81,7 @@ bool check_series_lengths(const std::string& key) {
 
     int ranges[6][2] = { { 2267, 2733 }, { 1079, 1421 }, { 502, 748 }, { 223, 402 }, { 90, 223 }, { 90, 223 } };
 
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < 6; i++) {
         if (array[i] < ranges[i][0] || array[i] > ranges[i][1]) {
             return false;
         }
