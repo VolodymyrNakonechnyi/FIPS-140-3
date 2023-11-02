@@ -21,10 +21,6 @@ jobs:
         cd build
         cmake ..
         cmake --build .
-    - name: Run the executable
-      run: |
-        cd build
-        ./FIPS
     - name: make
       run: make
     - name: make check
